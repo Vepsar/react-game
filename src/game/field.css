@@ -1,0 +1,46 @@
+td {
+  border: 1px solid green;
+  width: 8vw;
+  height: 8vw;
+  font-size: 5vh;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* td:active {
+  border: 2px solid greenyellow;
+} */
+
+.sudoku-row {
+  margin: 0;
+  padding: 0;
+  height: 8vw;
+}
+
+.game-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-field {
+  width: 7vw;
+  font-size: 5vw;
+  text-align: center;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+}
+
+.game-container {
+  height: 80vh;
+  display: flex;
+}
+
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
