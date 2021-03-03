@@ -6,18 +6,24 @@ import { theTimer } from "../game/field";
 import { useConfig } from "../game/config";
 export default function Main() {
   const config = useConfig();
-  function clickHndlr() {
+  function clickMainHndlr() {
     createSudoku(config.size, config.difficult);
-    // theTimer();
+    localStorage.removeItem("ans");
+    localStorage.removeItem("min");
+    localStorage.removeItem("sec");
+    theTimer();
+  }
+  function clickLoadHndlr() {
+    theTimer();
   }
 
   return (
     <div className="main-field">
       <Link to={"/game"}>
-        <button>Load game</button>
+        <button onClick={clickLoadHndlr}>Load game</button>
       </Link>
       <Link to={"/game"}>
-        <button onClick={clickHndlr}>New game</button>
+        <button onClick={clickMainHndlr}>New game</button>
       </Link>
       <Link to={"/score"}>
         <button>Score</button>

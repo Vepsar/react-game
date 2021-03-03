@@ -3,9 +3,9 @@ import { difficult } from "./algorithm";
 
 const config = {
   sound: false,
-  soundVolume: 50,
+  soundVolume: 30,
   music: false,
-  musicVolume: 50,
+  musicVolume: 30,
   size: "3",
   difficult: "55",
   color: 1,
@@ -21,8 +21,8 @@ export const useConfig = () => {
 export const ConfigProvider = ({ children }) => {
   const [soundVolume, setSoundVolume] = useState(config.soundVolume);
   const [musicVolume, setMusicVolume] = useState(config.musicVolume);
-  const [sound, setSound] = useState(config.sound);
-  const [music, setMusic] = useState(config.music);
+  // const [sound, setSound] = useState(config.sound);?
+  // const [music, setMusic] = useState(config.music);?
   const [size, setSize] = useState(config.size);
   const [difficult, setDifficult] = useState(config.difficult);
   const [color, setColor] = useState(config.color);
@@ -31,6 +31,18 @@ export const ConfigProvider = ({ children }) => {
   // const soundVolumeHandler = (soundVolume) => {
   //   setSoundVolume(soundVolume);
   // };
+
+  const soundHandler = (sound) => {
+    sound.load();
+    sound.volume = soundVolume / 100;
+    sound.play();
+  };
+
+  const musicHandler = (music) => {
+    music.load();
+    music.volume = musicVolume / 100;
+    music.play();
+  };
 
   // const musicVolumeHandler = (musicVolume) => {
   //   setMusicVolume(musicVolume);
@@ -57,13 +69,13 @@ export const ConfigProvider = ({ children }) => {
     <ConfigContext.Provider
       value={{
         soundVolume,
-        setSoundVolume,
+        soundHandler,
         musicVolume,
+        musicHandler,
+        // sound,
+        setSoundVolume,
+        // music,
         setMusicVolume,
-        sound,
-        setSound,
-        music,
-        setMusic,
         size,
         setSize,
         difficult,

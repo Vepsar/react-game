@@ -1,8 +1,8 @@
 td {
   border: 1px solid green;
-  width: 8vw;
-  height: 8vw;
-  font-size: 5vh;
+  /* width: 45px;
+  height: 45px; */
+  font-size: 20px;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -15,7 +15,7 @@ td {
 .sudoku-row {
   margin: 0;
   padding: 0;
-  height: 8vw;
+  /* height: 40px; */
 }
 
 .game-field {
@@ -26,8 +26,8 @@ td {
 }
 
 .input-field {
-  width: 7vw;
-  font-size: 5vw;
+  width: 30px;
+  font-size: 50px;
   text-align: center;
   text-overflow: ellipsis;
   border: none;

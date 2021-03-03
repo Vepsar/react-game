@@ -6,9 +6,10 @@ let size, difficult;
 function createSudoku(s, d) {
   size = parseInt(s, 10);
   difficult = parseInt(d, 10);
+  sudokuAns = [];
+  sudokuArray = [];
   createBasicSudoku();
 }
-
 function createBasicSudoku() {
   let prefill = [...Array(size ** 2).keys()].map((x) => {
     x++;
@@ -56,10 +57,11 @@ function sortSudoku() {
 
 function voider() {
   let counter = 0;
+  let c = difficult * 3;
   sudokuAns = sudokuArray.map((row) =>
     row.map((cell, i) => {
-      if (Math.random() > 1 - difficult / 100 && counter < difficult) {
-        counter++;
+      if (Math.random() > 1 - difficult / 100 && counter < c) {
+        size === 4 ? counter++ : (counter += 3);
         return 0;
       }
       return cell;

@@ -41,7 +41,10 @@ export default function Header() {
 
   function clickHandlr() {
     createSudoku(config.size, config.difficult);
-    // theTimer();
+    localStorage.removeItem("ans");
+    localStorage.removeItem("min");
+    localStorage.removeItem("sec");
+    theTimer();
   }
 
   const toggleDrawer = (anchor, open) => (event) => {

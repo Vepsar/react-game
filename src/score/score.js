@@ -1,5 +1,15 @@
 import scoreboard from "./scoretable";
+let score = scoreboard.sort(function (a, b) {
+  if (a.time > b.time) {
+    return 1;
+  }
+  if (a.time < b.time) {
+    return -1;
+  }
+  return 0;
+});
 export default function Settings() {
+  const scrbrd = JSON.parse(localStorage.score);
   return (
     <div className="score-contasiner">
       LEADERBOARD
@@ -11,7 +21,7 @@ export default function Settings() {
           <th>DIFFICULT</th>
         </thead>
         <tbody>
-          {scoreboard.map((cell) => {
+          {scrbrd.map((cell) => {
             return (
               <tr>
                 <td>{cell.name}</td>

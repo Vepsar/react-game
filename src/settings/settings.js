@@ -25,6 +25,9 @@ export default function Settings() {
 
   function clickHandlr() {
     createSudoku(config.size, config.difficult);
+    localStorage.removeItem("ans");
+    localStorage.removeItem("min");
+    localStorage.removeItem("sec");
     // theTimer();
   }
 
@@ -49,7 +52,6 @@ export default function Settings() {
           Select size
         </Typography>
         <RadioGroup aria-label="gender" name="gender1" value={config.size} onChange={handleRadioSizeChange}>
-          <FormControlLabel value="2" control={<Radio />} label="2x2" />
           <FormControlLabel value="3" control={<Radio />} label="3x3" />
           <FormControlLabel value="4" control={<Radio />} label="4x4" />
         </RadioGroup>
