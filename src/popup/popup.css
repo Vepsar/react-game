@@ -1,0 +1,30 @@
+.popup-container{
+    position: absolute;
+    font-size: 25px;
+    top:30vh;
+    left:50vw;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(162, 255, 165);
+    margin: 0;
+    box-shadow:1px 2px 3px 1px black;
+    border-radius: 15px;
+}
+
+.popup-label{
+    font-size: 25px;
+}
+
+.popup-link{
+    text-decoration: none;
+}
+
+.popup-input{
+    height:35px;
+    width: 120px;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    outline: none;
+    text-align: center;
+}
