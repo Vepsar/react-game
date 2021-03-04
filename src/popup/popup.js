@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 import "./popup.css";
 import { time } from "../game/field";
 import { useConfig } from "../game/config";
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { green, yellow, blue, red } from '@material-ui/core/colors'
+
 
 export default function Popup() {
   const [name, setName] = useState("Unknown");
   const config = useConfig();
+  const theme = createMuiTheme({
+    palette: {
+      primary: config.color === 'green' ? green : config.color === 'red' ? red:config.color === 'blue' ? blue: yellow,
+    },
+  });
   function toTheRecord() {
     let score = JSON.parse(localStorage.score);
     let winner = {
       name,
-      time: time,
+      time: config.timer,
       size: config.size === 3 ? "3x3" : "4x4",
       diff: config.difficult === "45" ? "easy" : config.difficult === "55" ? "normal" : "hard",
     };
@@ -33,14 +42,19 @@ export default function Popup() {
     setName(event.target.value);
   }
 
+
   return (
     <div className="popup-container">
-      CONGRATULATION!!! YOU WIN
+     <p>CONGRATULATION!!!</p> 
+     <p>YOU WIN</p> 
+       
       <form>
-        <label>Enter your name:</label>
-        <input onChange={nameHandler} />
-        <Link to={"/"} onClick={toTheRecord}>
-          <input type="submit" value="Submit" />
+        <label className='popup-label'>Enter your name:</label>
+        <input className='popup-input' onChange={nameHandler} />
+        <Link className='popup-link'  to={"/"} onClick={toTheRecord}>
+        <ThemeProvider theme={theme}>
+        <Button variant='contained' color='primary'>Submit</Button>
+        </ThemeProvider>
         </Link>
       </form>
     </div>

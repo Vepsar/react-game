@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { difficult } from "./algorithm";
-
+let timeTime = null;
 const config = {
   sound: false,
   soundVolume: 30,
@@ -8,8 +8,10 @@ const config = {
   musicVolume: 30,
   size: "3",
   difficult: "55",
-  color: 1,
-  backgr: 1,
+  color: 'green',
+  backgr: "1",
+  timer: '00 : 00',
+  timerOn: false
 };
 
 const ConfigContext = React.createContext();
@@ -21,8 +23,8 @@ export const useConfig = () => {
 export const ConfigProvider = ({ children }) => {
   const [soundVolume, setSoundVolume] = useState(config.soundVolume);
   const [musicVolume, setMusicVolume] = useState(config.musicVolume);
-  // const [sound, setSound] = useState(config.sound);?
-  // const [music, setMusic] = useState(config.music);?
+  const [timerOn, setTimerOn] = useState(config.timerOn);
+  const [timer, setTimer] = useState(config.timer);
   const [size, setSize] = useState(config.size);
   const [difficult, setDifficult] = useState(config.difficult);
   const [color, setColor] = useState(config.color);
@@ -44,27 +46,40 @@ export const ConfigProvider = ({ children }) => {
     music.play();
   };
 
-  // const musicVolumeHandler = (musicVolume) => {
-  //   setMusicVolume(musicVolume);
-  // };
-  // const soundHandler = (sound) => {
-  //   setSound(sound);
-  // };
-  // const musicHandler = (music) => {
-  //   setMusic(music);
-  // };
-  // const trackHandler = (track) => {
-  //   setTrack(track);
-  // };
-  // const speedHandler = (speed) => {
-  //   setSpeed(speed);
-  // };
-  // const mapHandler = (number) => {
-  //   setMap(number);
-  // };
-  // const skinHandler = (skin) => {
-  //   setSkin(skin);
-  // };
+  let time;
+  
+  function theTimer() {
+  clearInterval(timeTime); 
+  var min = 0;
+  var sec = 0;
+  "min" in localStorage ? (min = JSON.parse(localStorage.min)) : (min = 0);
+  "sec" in localStorage ? (sec = JSON.parse(localStorage.sec)) : (sec = 0);
+  timeTime = setInterval(() => {
+    sec++;
+    localStorage.sec = JSON.stringify(sec);
+    if (min < 10) {
+      if (sec < 10) {
+        time = `0${min} : 0${sec}`;
+      } else {
+        time = `0${min} : ${sec}`;
+      }
+    } else {
+      if (sec < 10) {
+        time = `${min} : 0${sec}`;
+      } else {
+        time = `${min} : ${sec}`;
+      }
+    }
+    if (sec == 60) {
+      min++;
+      
+      localStorage.min = JSON.stringify(min);
+      sec = 0;
+    }
+    setTimer(time)
+  }, 1000);
+}
+
   return (
     <ConfigContext.Provider
       value={{
@@ -72,9 +87,9 @@ export const ConfigProvider = ({ children }) => {
         soundHandler,
         musicVolume,
         musicHandler,
-        // sound,
+        setTimer,
         setSoundVolume,
-        // music,
+        timer,
         setMusicVolume,
         size,
         setSize,
@@ -84,6 +99,9 @@ export const ConfigProvider = ({ children }) => {
         setColor,
         backgr,
         setBackgr,
+        timerOn, 
+        setTimerOn,
+        theTimer
       }}
     >
       {children}

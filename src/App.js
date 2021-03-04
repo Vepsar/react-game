@@ -14,7 +14,7 @@ import ConfigProvider from "./game/config";
 function App() {
   return (
     <div className="App">
-      <HashRouter basename="/">
+      <HashRouter  basename="/">
         <ConfigProvider>
           <Header />
           <Switch>
@@ -26,6 +26,7 @@ function App() {
           <Footer />
         </ConfigProvider>
       </HashRouter>
+      
     </div>
   );
 }

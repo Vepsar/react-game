@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "./main.css";
 import { theTimer } from "../game/field";
 import { useConfig } from "../game/config";
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { green, yellow, blue, red } from '@material-ui/core/colors'
+
 export default function Main() {
   const config = useConfig();
   function clickMainHndlr() {
@@ -11,25 +15,39 @@ export default function Main() {
     localStorage.removeItem("ans");
     localStorage.removeItem("min");
     localStorage.removeItem("sec");
-    theTimer();
+    config.theTimer()
   }
   function clickLoadHndlr() {
-    theTimer();
+    config.theTimer()
   }
+  const theme = createMuiTheme({
+    palette: {
+      primary: config.color === 'green' ? green : config.color === 'red' ? red:config.color === 'blue' ? blue: yellow,
+      
+    },
+  });
 
   return (
     <div className="main-field">
-      <Link to={"/game"}>
-        <button onClick={clickLoadHndlr}>Load game</button>
+      <Link className='main-link' to={'ans'in localStorage ? "/game" : '/'}>
+        <ThemeProvider theme={theme}>
+        <Button variant='contained' color='primary' onClick={clickLoadHndlr} disabled={'ans'in localStorage? false : true}>Load game</Button>
+        </ThemeProvider>
       </Link>
-      <Link to={"/game"}>
-        <button onClick={clickMainHndlr}>New game</button>
+      <Link className='main-link' to={"/game"}>
+      <ThemeProvider theme={theme}>
+        <Button variant='contained' color='primary' onClick={clickMainHndlr}>New game</Button>
+        </ThemeProvider>
       </Link>
-      <Link to={"/score"}>
-        <button>Score</button>
+      <Link className='main-link' to={"/score"}>
+      <ThemeProvider theme={theme}>
+        <Button variant='contained' color='primary' >Score</Button>
+        </ThemeProvider>
       </Link>
-      <Link to={"/settings"}>
-        <button>Settings</button>
+      <Link className='main-link' to={"/settings"}>
+      <ThemeProvider theme={theme}>
+        <Button variant='contained' color='primary'>Settings</Button>
+        </ThemeProvider>
       </Link>
     </div>
   );

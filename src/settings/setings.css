@@ -1,0 +1,13 @@
+.radio-container{
+    /* display: flex; */
+    /* flex-direction: row; */
+}
+
+.settings-container{
+    
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    
+}

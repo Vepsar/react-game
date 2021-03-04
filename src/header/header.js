@@ -26,9 +26,11 @@ import { useConfig } from "../game/config";
 const useStyles = makeStyles({
   list: {
     width: 400,
+    textDecoration: 'none'
   },
   fullList: {
     width: "auto",
+    
   },
 });
 
@@ -44,8 +46,14 @@ export default function Header() {
     localStorage.removeItem("ans");
     localStorage.removeItem("min");
     localStorage.removeItem("sec");
-    theTimer();
+    config.theTimer()
+    config.setTimer('00 : 00')
   }
+  const headerStyle = {
+      backgroundColor: config.color
+  }
+
+  
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -54,6 +62,7 @@ export default function Header() {
 
     setState({ ...state, [anchor]: open });
   };
+
 
   const list = (anchor) => (
     <div
@@ -91,12 +100,13 @@ export default function Header() {
   );
 
   return (
-    <div className="header-container">
+    <div className={`header-container`} style={headerStyle}>
       {
         <React.Fragment>
-          <Button onClick={toggleDrawer("top", true)}>
+          <div className='header-title'>SUDOKU</div>
+          <Button className='header-menu' onClick={toggleDrawer("top", true)}>
             <MenuIcon />
-            MENU
+            <p>MENU</p>
           </Button>
           <Drawer anchor={"top"} open={state["top"]} onClose={toggleDrawer("top", false)}>
             {list("top")}

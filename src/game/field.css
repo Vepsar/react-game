@@ -19,6 +19,7 @@ td {
 }
 
 .game-field {
+  height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
