@@ -1,32 +1,23 @@
-import "./App.css";
-import react from "react";
-import Main from "./mainPage/main";
-import Header from "./header/header";
-import Footer from "./footer/footer";
-import Field from "./game/field";
-import Settings from "./settings/settings";
-import Score from "./score/score";
-
-import { Route, Switch, Redirect, HashRouter } from "react-router-dom";
-import ConfigProvider from "./game/config";
-// import sudokuArray from "./game/algorithm.js";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <HashRouter  basename="/">
-        <ConfigProvider>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={Main} />
-            <Route path="/game" exact component={Field} />
-            <Route path="/settings" exact component={Settings} />
-            <Route path="/score" exact component={Score} />
-          </Switch>
-          <Footer />
-        </ConfigProvider>
-      </HashRouter>
-      
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
