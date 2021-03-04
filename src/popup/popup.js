@@ -6,9 +6,13 @@ import { useConfig } from "../game/config";
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { green, yellow, blue, red } from '@material-ui/core/colors'
+import wnSound from "../sounds/win.mp3"
 
 
 export default function Popup() {
+  const winSound = new Audio();
+  winSound.src = wnSound;
+  
   const [name, setName] = useState("Unknown");
   const config = useConfig();
   const theme = createMuiTheme({
@@ -42,7 +46,7 @@ export default function Popup() {
     setName(event.target.value);
   }
 
-
+  config.soundHandler(winSound)
   return (
     <div className="popup-container">
      <p>CONGRATULATION!!!</p> 

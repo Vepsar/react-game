@@ -2,10 +2,9 @@
 import { createSudoku } from "../game/algorithm";
 import { Link } from "react-router-dom";
 import "./main.css";
-import { theTimer } from "../game/field";
 import { useConfig } from "../game/config";
 import Button from '@material-ui/core/Button';
-import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { green, yellow, blue, red } from '@material-ui/core/colors'
 
 export default function Main() {
@@ -18,12 +17,12 @@ export default function Main() {
     config.theTimer()
   }
   function clickLoadHndlr() {
+    config.setLoad(true)
     config.theTimer()
   }
   const theme = createMuiTheme({
     palette: {
       primary: config.color === 'green' ? green : config.color === 'red' ? red:config.color === 'blue' ? blue: yellow,
-      
     },
   });
 

@@ -1,9 +1,4 @@
-// import react from "react";
 import "./header.css";
-// export default function Header() {
-//   return <div className="header-container">HEADER</div>;
-// }
-
 import React from "react";
 import clsx from "clsx";
 import { createSudoku } from "../game/algorithm";
@@ -53,9 +48,7 @@ export default function Header() {
       backgroundColor: config.color
   }
 
-  
-
-  const toggleDrawer = (anchor, open) => (event) => {
+    const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { difficult } from "./algorithm";
 let timeTime = null;
 const config = {
   sound: false,
@@ -11,7 +10,8 @@ const config = {
   color: 'green',
   backgr: "1",
   timer: '00 : 00',
-  timerOn: false
+  timerOn: false,
+  load: false
 };
 
 const ConfigContext = React.createContext();
@@ -29,13 +29,9 @@ export const ConfigProvider = ({ children }) => {
   const [difficult, setDifficult] = useState(config.difficult);
   const [color, setColor] = useState(config.color);
   const [backgr, setBackgr] = useState(config.backgr);
-
-  // const soundVolumeHandler = (soundVolume) => {
-  //   setSoundVolume(soundVolume);
-  // };
+  const [load, setLoad] = useState(config.load)
 
   const soundHandler = (sound) => {
-    sound.load();
     sound.volume = soundVolume / 100;
     sound.play();
   };
@@ -101,7 +97,9 @@ export const ConfigProvider = ({ children }) => {
         setBackgr,
         timerOn, 
         setTimerOn,
-        theTimer
+        theTimer,
+        load, 
+        setLoad
       }}
     >
       {children}

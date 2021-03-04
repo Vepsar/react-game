@@ -1,6 +1,5 @@
 import scoreboard from "./scoretable";
 import './score.css'
-import backgr from '../assets/mainbackgr.jpg'
 import { useConfig } from "../game/config";
 
 scoreboard.sort(function (a, b) {

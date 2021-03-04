@@ -106,6 +106,5 @@ function startAgian(number, size) {
   return number;
 }
 
-// createBasicSudoku();
 
 export { sudokuArray, sudokuAns, createSudoku };
