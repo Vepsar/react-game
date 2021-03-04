@@ -7,9 +7,8 @@ import Field from "./game/field";
 import Settings from "./settings/settings";
 import Score from "./score/score";
 
-import { Route, Switch, Redirect, HashRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import ConfigProvider from "./game/config";
-// import sudokuArray from "./game/algorithm.js";
 
 function App() {
   return (
