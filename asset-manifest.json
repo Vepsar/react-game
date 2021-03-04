@@ -1,21 +1,28 @@
 {
   "files": {
-    "main.css": "/react-game/static/css/main.0c8e499b.chunk.css",
-    "main.js": "/react-game/static/js/main.fca1af76.chunk.js",
-    "main.js.map": "/react-game/static/js/main.fca1af76.chunk.js.map",
-    "runtime-main.js": "/react-game/static/js/runtime-main.61da8e97.js",
-    "runtime-main.js.map": "/react-game/static/js/runtime-main.61da8e97.js.map",
-    "static/js/2.210bf7cd.chunk.js": "/react-game/static/js/2.210bf7cd.chunk.js",
-    "static/js/2.210bf7cd.chunk.js.map": "/react-game/static/js/2.210bf7cd.chunk.js.map",
-    "index.html": "/react-game/index.html",
-    "static/css/main.0c8e499b.chunk.css.map": "/react-game/static/css/main.0c8e499b.chunk.css.map",
-    "static/js/2.210bf7cd.chunk.js.LICENSE.txt": "/react-game/static/js/2.210bf7cd.chunk.js.LICENSE.txt",
-    "static/media/rs_school_js.ad178c0d.svg": "/react-game/static/media/rs_school_js.ad178c0d.svg"
+    "main.css": "/react-sudoku/static/css/main.f2d1297b.chunk.css",
+    "main.js": "/react-sudoku/static/js/main.0787faed.chunk.js",
+    "main.js.map": "/react-sudoku/static/js/main.0787faed.chunk.js.map",
+    "runtime-main.js": "/react-sudoku/static/js/runtime-main.b5abb9b7.js",
+    "runtime-main.js.map": "/react-sudoku/static/js/runtime-main.b5abb9b7.js.map",
+    "static/js/2.bac86348.chunk.js": "/react-sudoku/static/js/2.bac86348.chunk.js",
+    "static/js/2.bac86348.chunk.js.map": "/react-sudoku/static/js/2.bac86348.chunk.js.map",
+    "index.html": "/react-sudoku/index.html",
+    "static/css/main.f2d1297b.chunk.css.map": "/react-sudoku/static/css/main.f2d1297b.chunk.css.map",
+    "static/js/2.bac86348.chunk.js.LICENSE.txt": "/react-sudoku/static/js/2.bac86348.chunk.js.LICENSE.txt",
+    "static/media/backgr1.70a3c98a.jpg": "/react-sudoku/static/media/backgr1.70a3c98a.jpg",
+    "static/media/backgr2.dc212c50.jpg": "/react-sudoku/static/media/backgr2.dc212c50.jpg",
+    "static/media/backgr3.1e8c157d.jpg": "/react-sudoku/static/media/backgr3.1e8c157d.jpg",
+    "static/media/bckgrnd.2ae147ec.mp3": "/react-sudoku/static/media/bckgrnd.2ae147ec.mp3",
+    "static/media/err.98dac69e.mp3": "/react-sudoku/static/media/err.98dac69e.mp3",
+    "static/media/score.css": "/react-sudoku/static/media/mainbackgr.d5a85952.jpg",
+    "static/media/rs_school_js.ad178c0d.svg": "/react-sudoku/static/media/rs_school_js.ad178c0d.svg",
+    "static/media/win.76921b77.mp3": "/react-sudoku/static/media/win.76921b77.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.61da8e97.js",
-    "static/js/2.210bf7cd.chunk.js",
-    "static/css/main.0c8e499b.chunk.css",
-    "static/js/main.fca1af76.chunk.js"
+    "static/js/runtime-main.b5abb9b7.js",
+    "static/js/2.bac86348.chunk.js",
+    "static/css/main.f2d1297b.chunk.css",
+    "static/js/main.0787faed.chunk.js"
   ]
 }
